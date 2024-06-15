@@ -1,0 +1,90 @@
+<app-header></app-header>
+
+<div class="pt-5 m-5">
+  <div class="container">
+    <div class="row">
+      <h1 class="text-center">Login</h1>
+      <div class="col-md-5 mx-auto">
+        <div class="card card-body">
+          <form
+            id="submitForm"
+            [formGroup]="loginForm"
+            method="post"
+            data-parsley-validate=""
+            data-parsley-errors-messages-disabled="true"
+            novalidate=""
+            _lpchecked="1"
+          >
+            <div class="form-group required mb-3">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Email address</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="name@example.com"
+                name="email" formControlName="email"
+              />
+            </div>
+            <div
+              *ngIf="
+                loginForm.get('email')?.errors &&
+                loginForm.get('email')?.touched
+              "
+              class="mb-3 text-danger"
+            >
+              *Invalid email
+            </div>
+
+            <div class="form-group required">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Password</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="Password"
+                name="password" formControlName="password"
+              />
+            </div>
+            <div
+              *ngIf="
+                loginForm.get('password')?.errors &&
+                loginForm.get('password')?.touched
+              "
+              class="mb-3 text-danger"
+            >
+              *Invalid password
+            </div>
+
+            <div class="form-group mt-2 mb-2">
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="remember-me"
+                  name="remember-me"
+                  data-parsley-multiple="remember-me"
+                />
+                <label class="custom-control-label" for="remember-me"
+                  >Remember me?</label
+                >
+              </div>
+            </div>
+            <div class="form-group pt-1 d-grid place-items-center">
+              <button class="btn btn-primary" (click)="login()" type="submit">
+                Log In
+              </button>
+            </div>
+          </form>
+          <p class="small-xl pt-3 text-center">
+            <span class="text-muted">Not a member?</span>
+            <a routerLink="/register">Sign up</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

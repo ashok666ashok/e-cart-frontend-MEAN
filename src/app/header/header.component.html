@@ -1,0 +1,13 @@
+<nav class="navbar bg-dark">
+    <div class="container-fluid ">
+      <div class="navbar-brand fw-bolder d-flex justify-content-between" routerLink="/"><img src="../../assets/e-cart-icon.png" width="50px" alt=""> <h5 class="pt-3 fw-bolder text-success">E-Cart</h5></div>
+      <div class="d-flex justify-content-evenly">
+     
+      <button class="btn btn-outline-light me-2" routerLink="/whishlist">whishlist<i class="fa-solid fa-heart p-2 "></i><span class="bg-dark text-light p-1 rounded-pill">{{wishlistCount}}</span></button>
+        <button class="btn  btn-outline-light me-2" routerLink="/cart">cart<i class="fa-solid fa-cart-shopping p-2"></i><span class="bg-dark text-light p-1 rounded-pill">{{cartCount}}</span></button>
+        <button *ngIf="!loginUsername" class="btn  btn-outline-success me-2" routerLink="login"><i class="fa-solid fa-user p-2" ></i>Login</button>
+        <button *ngIf="loginUsername" (click)="logout()" routerLink="login" class="btn  btn-outline-danger me-2" ><i class="fa-solid fa-user p-2" ></i>{{loginUsername}} Logout</button>
+        
+      </div>
+    </div>
+  </nav>
